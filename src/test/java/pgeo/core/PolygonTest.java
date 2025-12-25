@@ -477,7 +477,7 @@ class PolygonTest {
         }
     }
 
-    @Nested
+@Nested
     @DisplayName("Array Conversion")
     class ArrayConversion {
 
@@ -485,21 +485,24 @@ class PolygonTest {
         @DisplayName("should convert to array correctly")
         void shouldConvertToArrayCorrectly() {
             Point[] vertices = {
-                new Point(1, 2),
-                new Point(3, 4),
-                new Point(5, 6)
+                new Point(0, 0),
+                new Point(4, 0),
+                new Point(4, 3),
+                new Point(0, 3)
             };
             Polygon polygon = new Polygon(vertices);
 
             double[][] array = polygon.toArray();
 
-            assertEquals(3, array.length);
-            assertEquals(1, array[0][0], DELTA);
-            assertEquals(2, array[0][1], DELTA);
-            assertEquals(3, array[1][0], DELTA);
-            assertEquals(4, array[1][1], DELTA);
-            assertEquals(5, array[2][0], DELTA);
-            assertEquals(6, array[2][1], DELTA);
+            assertEquals(4, array.length);
+            assertEquals(0, array[0][0], DELTA);
+            assertEquals(0, array[0][1], DELTA);
+            assertEquals(4, array[1][0], DELTA);
+            assertEquals(0, array[1][1], DELTA);
+            assertEquals(4, array[2][0], DELTA);
+            assertEquals(3, array[2][1], DELTA);
+            assertEquals(0, array[3][0], DELTA);
+            assertEquals(3, array[3][1], DELTA);
         }
     }
 
